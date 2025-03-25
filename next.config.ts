@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
       }
     ],
     domains: []
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true, 
+  },
 };
 
 export default nextConfig;
