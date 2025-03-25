@@ -1,6 +1,6 @@
 # Next.js E-Commerce Shop
 
-This project is a full-stack e-commerce application built with Next.js 14, Sanity.io, Stripe, Tailwind CSS, and Shadcn UI. This project demonstrates shows a performant, modern online store with dynamic routing, payment processing, and a headless CMS for product management.
+This project is a full-stack e-commerce application built with Next.js 15, Sanity.io, Stripe, Tailwind CSS, and Shadcn UI. This project demonstrates shows a performant, modern online store with dynamic routing, payment processing, and a headless CMS for product management.
 
 
 ## Features
