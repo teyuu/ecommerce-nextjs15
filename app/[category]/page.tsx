@@ -3,38 +3,32 @@ import { simplifiedProduct } from "../interface";
 import { client } from "../lib/sanity";
 import Image from "next/image";
 
-async function getData(category: string) {
-    const query =
-      category === "all"
-        ? `*[_type == "product"] {
-            _id,
-            "imageUrl": images[0].asset->url,
-            price,
-            name,
-            "slug": slug.current,
-            "categoryName": category->name
-          }`
-        : `*[_type == "product" && category->name == "${category}"] {
-            _id,
-            "imageUrl": images[0].asset->url,
-            price,
-            name,
-            "slug": slug.current,
-            "categoryName": category->name
-          }`;
-  
-    const data = await client.fetch(query);
-    return data;
-  }
+async function getData(cateogry: string) {
+  const query = `*[_type == "product" && category->name == "${cateogry}"] {
+        _id,
+          "imageUrl": images[0].asset->url,
+          price,
+          name,
+          "slug": slug.current,
+          "categoryName": category->name
+      }`;
+
+  const data = await client.fetch(query);
+
+  return data;
+}
 
 export const dynamic = "force-dynamic";
+
+
 
 export default async function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>
 }) {
-  const { category } = await params;
+  const { category } = await params
+
   const data: simplifiedProduct[] = await getData(category);
 
   return (
